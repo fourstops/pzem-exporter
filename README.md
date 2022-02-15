@@ -58,9 +58,7 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Docker](#docker)
 * [Roadmap](#roadmap)
-* [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
@@ -120,25 +118,6 @@ sudo systemctl start pzem-exporter
 ```sh
 sudo systemctl status pzem-exporter
 ```
-If the service is running correctly, the output should resemble the following:
-
-```
-pi@raspberrypi:/usr/src/pzem-exporter $ sudo systemctl status pzem-exporter
-● pzem-exporter.service - pzem-exporter service
-   Loaded: loaded (/etc/systemd/system/pzem-exporter.service; disabled; vendor preset: enabled)
-   Active: active (running) since Fri 2020-01-17 14:13:41 CET; 5s ago
- Main PID: 30373 (python)
-    Tasks: 2 (limit: 4915)
-   Memory: 6.0M
-   CGroup: /system.slice/pzem-exporter.service
-           └─30373 /usr/bin/python /usr/src/pzem-exporter/pzem-exporter.py --bind=0.0.0.0 --port=8000
-
-Jan 17 14:13:41 wall-e systemd[1]: Started pzem-exporter service.
-Jan 17 14:13:41 wall-e python[30373]: 2020-01-17 14:13:41.565 INFO     pzem-exporter.py - Expose readings from the Enviro+ sensor by Pimoroni in Prometheus format
-Jan 17 14:13:41 wall-e python[30373]: Press Ctrl+C to exit!
-Jan 17 14:13:41 wall-e python[30373]: 2020-01-17 14:13:41.581 INFO     Listening on http://0.0.0.0:8000
-```
-
 6.Enable at boot time
 ```sh
 sudo systemctl enable pzem-exporter
@@ -203,12 +182,12 @@ scrape_configs:
     - targets: ['localhost:8000']
       labels:
         group: 'environment'
-        location: 'Amsterdam'
+        location: 'Baltimore'
         
     - targets: ['baltimore.example.com:8001']
       labels:
         group: 'environment'
-        location: 'New York'
+        location: 'Washington, D.C.'
 ``` 
 
 I added two labels to the targets ```group: environment``` and ```location: SomeLocation```. The Grafana dashboard uses these labels to distinguish the various locations.
