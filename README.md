@@ -35,7 +35,7 @@
   <h3 align="center">PZEM-exporter</h3>
 
   <p align="center">
-    Prometheus exporter for pzem module by Pimoroni
+    Prometheus exporter for PZEM-016 Energy Meter module by Peacefair. 
     <br />
     <a href="https://github.com/fourstops/pzem-exporter"><strong>Explore the docs »</strong></a>
     <br />
